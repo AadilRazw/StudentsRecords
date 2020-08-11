@@ -2,6 +2,7 @@
 def secondScreen():
 	import mysql.connector
 	import pygame
+	import secrets
 	pygame.init()
 	from time import sleep
 	#variables
@@ -37,7 +38,7 @@ def secondScreen():
 			win.blit(text2,(200,200+i*32))
 			text3 = font.render(put3,True,FONTC)
 			win.blit(text3,(350,200+i*32))
-	mydb = mysql.connector.connect(host = "localhost",user = "root",passwd ="root")
+	mydb = mysql.connector.connect(host = "localhost",user = secrets.username,passwd = secrets.password)
 	c = mydb.cursor()
 	c.execute("use practise;")
 	c.execute("select * from test order by Sid;")

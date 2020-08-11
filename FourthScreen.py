@@ -2,6 +2,7 @@
 def fourthscreen():
 	import mysql.connector
 	import pygame
+	import secrets
 	pygame.init()
 	from time import sleep
 	#variables
@@ -44,7 +45,7 @@ def fourthscreen():
 	def insert(x,y,z):
 		try:
 			data = (x,y,z)
-			mydb = mysql.connector.connect(host = "localhost",user = "root", passwd = "root")
+			mydb = mysql.connector.connect(host = "localhost",user = secrets.username, passwd = secrets.password)
 			c = mydb.cursor()
 			c.execute("USE practise;")
 			c.execute(f"Insert into test value{data}")

@@ -1,6 +1,5 @@
 #OptionsPage
 def thirdscreen():
-	import mysql.connector
 	import pygame
 	pygame.init()
 	from time import sleep

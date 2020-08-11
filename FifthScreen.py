@@ -2,6 +2,7 @@
 def fifthscreen():
 	import pygame
 	import mysql.connector
+	import secrets
 	from time import sleep
 	pygame.init()
 
@@ -37,7 +38,7 @@ def fifthscreen():
 		border1 = pygame.draw.rect(win, FONTC, (x, y, w, h), 0)
 	def delete(x):
 		try:
-			mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "root")
+			mydb = mysql.connector.connect(host = "localhost", user = secrets.username,passwd = secrets.password)
 			c = mydb.cursor()
 			c.execute("USE practise;")
 			c.execute(f"delete from test where name = '{x}';")

@@ -40,6 +40,12 @@ def secondScreen():
 			win.blit(text3,(350,200+i*32))
 	mydb = mysql.connector.connect(host = "localhost",user = secrets.username,passwd = secrets.password)
 	c = mydb.cursor()
+	try:
+		c.execute("CREATE DATABASE practise;")
+		c.execute("USE practise;")
+		c.execute("CREATE TABLE test(SID INTEGER PRIMARY KEY,Name VARCHAR(50),phoneNO INTEGER);")
+	except:
+		pass
 	c.execute("use practise;")
 	c.execute("select * from test order by Sid;")
 	datas = c.fetchall()
